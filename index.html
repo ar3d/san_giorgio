@@ -37,9 +37,9 @@
      
       <!-- Image links. -->
       <a-entity id="links">
-        <a-entity template="src: #link" data-src="#san_giorgio_1" data-thumb="#san_giorgio_1_thumb" layout="type: line" position="0 -1 -4" rotation="0 0 0"  animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
-        <a-entity template="src: #link" data-src="#san_giorgio_2" data-thumb="#san_giorgio_2_thumb" layout="type: line" position="1.5 -1 -4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
-        <a-entity template="src: #link" data-src="#san_giorgio_3" data-thumb="#san_giorgio_3_thumb" layout="type: line" position="-1.5 -1 -4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 2000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_1" data-thumb="#san_giorgio_1_thumb" layout="type: line" position="0 -1 -4" rotation="0 0 0"  animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_2" data-thumb="#san_giorgio_2_thumb" layout="type: line" position="1.5 -1 -4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_3" data-thumb="#san_giorgio_3_thumb" layout="type: line" position="-1.5 -1 -4" rotation="0 0 0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true"; easing: linear; loop: true"></a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
@@ -65,7 +65,7 @@
       </a-entity>
       
        <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#san_giorgio_1"
+      <a-sky id="image-360" radius="20" src="#san_giorgio_1"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade" rotation="0 94.2 0"></a-sky>
 
