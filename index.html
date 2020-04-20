@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <img id="san_giorgio_1" crossorigin="anonymous" src="images/giorgio_1.jpg">
+        <img id="san_giorgio_1_thumb" crossorigin="anonymous" src="images/san_giorgio_1_thumb.jpg">
+       <img id="san_giorgio_2" crossorigin="anonymous" src="images/giorgio_2.jpg">
+        <img id="san_giorgio_2_thumb" crossorigin="anonymous" src="images/san_giorgio_2_thumb.jpg">
+        <img id="san_giorgio_3_thumb" crossorigin="anonymous" src="images/san_giorgio_3_thumb.jpg">
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+        <img id="san_giorgio_3" crossorigin="anonymous" src="images/giorgio_3.jpg">
+
+        <!-- Image link template to be reused. -->
+        <script id="link" type="text/html">
+          <a-entity class="link"
+            geometry="primitive: sphere; radius: 1"
+            material="shader: flat; src: ${thumb}"
+            event-set__mouseenter="scale: 1.2 1.2 1"
+            event-set__mouseleave="scale: 1 1 1"
+            event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+            proxy-event="event: click; to: #image-360; as: fade"
+            sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      </a-assets>
+
+     
+      <!-- Image links. -->
+      <a-entity id="links">
+        <a-entity template="src: #link" data-src="#san_giorgio_1" data-thumb="#san_giorgio_1_thumb" layout="type: line" position="0 -1 -4" rotation="-45 0 0"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_2" data-thumb="#san_giorgio_2_thumb" layout="type: line" position="1.5 -1 -4" rotation="-45 0 0"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_3" data-thumb="#san_giorgio_3_thumb" layout="type: line" position="-1.5 -1 -4" rotation="-45 0 0"></a-entity>
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <!--           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" -->
+       <a-entity id="cam" camera="fov:80" position="0 1.6 0" look-controls
+                animation__zoomin="property:camera.fov;dur:2000;to:50;startEvents:zoomin;"
+                animation__zoomout="property:camera.fov;dur:1000;to:80;startEvents:zoomout;">
+        
+        <a-entity id="cursor-visual" cursor="fuse:true;fuseTimeout:500" 
+                  material="shader:flat;color:#09B4FF" 
+                  position="0 0 -1" 
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015;thetaLength:0"
+                  animation__mouseenter="property: geometry.thetaLength; dir: alternate; dur: 500;
+                                easing: easeInSine; from:0;to: 360;startEvents:startFuse;pauseEvents:stopFuse;autoplay:false"
+                  
+                  animation__mouseleave="property: geometry.thetaLength; dir: alternate; dur: 200;
+                                easing: easeInSine; to: 0;startEvents:stopFuse;autoplay:false">
+          <a-entity geometry="primitive:ring;radiusOuter:0.015;radiusInner:0.01" material="shader:flat;color:#000000"></a-entity>
+        </a-entity>
+        <a-plane id="camfadeplane" rotation="10 0.5 0" position="0 0 -0.5" material="color:#000000;transparent:true;opacity:0" width="2" height="2"
+                 animation__fadein="property:material.opacity;to:1;dur:2000;startEvents:camFadeIn"
+                 animation__fadeout="property:material.opacity;to:0;dur:200;startEvents:camFadeOut"></a-plane>
+      </a-entity>
+      
+       <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="san_giorgio_1"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade" rotation="0 94.2 0"></a-sky>
+
+      </a-scene>
+  </body>
+</html>
