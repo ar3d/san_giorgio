@@ -37,14 +37,14 @@
      
       <!-- Image links. -->
       <a-entity id="links">
-        <a-entity template="src: #link" data-src="#san_giorgio_1" data-thumb="#san_giorgio_1_thumb" layout="type: line" position="0 -1 -4" rotation="-45 0 0"  animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"></a-entity>
-        <a-entity template="src: #link" data-src="#san_giorgio_2" data-thumb="#san_giorgio_2_thumb" layout="type: line" position="1.5 -1 -4" rotation="-45 0 0"></a-entity>
-        <a-entity template="src: #link" data-src="#san_giorgio_3" data-thumb="#san_giorgio_3_thumb" layout="type: line" position="-1.5 -1 -4" rotation="-45 0 0"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_1" data-thumb="#san_giorgio_1_thumb" layout="type: line" position="0 -1 -4" rotation="0 0 0"  animation="property: rotation; to: 0 360 0; ease="linear"; repeat="indefinite"; dur: 10000"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_2" data-thumb="#san_giorgio_2_thumb" layout="type: line" position="1.5 -1 -4" rotation="0 0 0"></a-entity>
+        <a-entity template="src: #link" data-src="#san_giorgio_3" data-thumb="#san_giorgio_3_thumb" layout="type: line" position="-1.5 -1 -4" rotation="0 0 0"></a-entity>
       </a-entity>
 
       <!-- Camera + cursor. -->
       <!--           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" -->
-       <a-entity id="cam" camera="fov:35" position="0 1.6 0" look-controls
+       <a-entity id="cam" camera="fov:55" position="0 1.6 0" look-controls
                 animation__zoomin="property:camera.fov;dur:2000;to:50;startEvents:zoomin;"
                 animation__zoomout="property:camera.fov;dur:1000;to:80;startEvents:zoomout;">
         
