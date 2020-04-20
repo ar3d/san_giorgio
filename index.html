@@ -24,7 +24,7 @@
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
-            geometry="primitive: sphere; radius: 1"
+            geometry="primitive: sphere; radius: 0.5"
             material="shader: flat; src: ${thumb}"
             event-set__mouseenter="scale: 1.2 1.2 1"
             event-set__mouseleave="scale: 1 1 1"
@@ -65,7 +65,7 @@
       </a-entity>
       
        <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="san_giorgio_1"
+      <a-sky id="image-360" radius="10" src="#san_giorgio_1"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade" rotation="0 94.2 0"></a-sky>
 
