@@ -44,14 +44,14 @@
 
       <!-- Camera + cursor. -->
       <!--           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150" -->
-       <a-entity id="cam" camera="fov:80" position="0 0 0" look-controls
+       <a-entity id="cam" camera="fov:80" position="0 1.6 0" look-controls
                 animation__zoomin="property:camera.fov;dur:2000;to:50;startEvents:zoomin;"
                 animation__zoomout="property:camera.fov;dur:1000;to:80;startEvents:zoomout;">
         
         <a-entity id="cursor-visual" cursor="fuse:true;fuseTimeout:500" 
                   material="shader:flat;color:#09B4FF" 
                   position="0 0 -1" 
-                  geometry="primitive: ring; radiusInner: 0.1; radiusOuter: 0.15;thetaLength:0"
+                  geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.015;thetaLength:0"
                   animation__mouseenter="property: geometry.thetaLength; dir: alternate; dur: 500;
                                 easing: easeInSine; from:0;to: 360;startEvents:startFuse;pauseEvents:stopFuse;autoplay:false"
                   
